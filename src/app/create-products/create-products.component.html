@@ -1,0 +1,56 @@
+<div class="container mt-5 w-75">
+    <h1>Create Products</h1><span><button onclick="product-analytics" ><a routerLink="productAnalytics">Analytics</a> </button></span>
+    <form class="row g-3" (submit)="createproducts()" [formGroup]="myproductform">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Product Name</label>
+          <input type="email" class="form-control" id="inputEmail4" formControlName="productName">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Product Quantity</label>
+          <input type="text" class="form-control" id="inputPassword4" formControlName="quantity">
+        </div>
+        <div class="col-6">
+          <label for="inputAddress" class="form-label">Product Price</label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="price">
+        </div>
+        <div class="col-6">
+          <label for="inputAddress2" class="form-label">Company Name</label>
+          <input type="text" class="form-control" id="inputAddress2" formControlName="companyName">
+        </div>
+        <div class="col-md-6">
+          <label  class="form-label">Select COlor</label>
+          <select name="selectColor" class="form-control input" id="" formControlName="color">
+            <option *ngFor="let a of color">{{a}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+            <label for=" conatainer"> Select Size</label>  <br>
+            <ng-container *ngFor="let abc of selectSize" id="container">
+                <input class="form-check-input" type="checkbox" [value]="abc" [id]="abc" (click)="getsize($event)">
+                <label class="form-check-label mx-2" [for]="abc">
+                  {{abc}}
+                </label>
+            </ng-container>
+        </div>
+        <div class="col-12 ">
+          <label for="inputZip" class="form-label">Description</label>
+          <div class="col">
+            <textarea name="" class="mt-2" id="" cols="30" rows="10" formControlName="description"></textarea>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <label for="formFile" class="form-label tag">Select Images</label>
+            <input  class="form-control input" type="file" id="formFile" multiple (change)="getimage($event)"  />
+        </div>
+        <div class="col-md-6">
+            <label for="" class="tag mb-2">Select Categories</label>
+            <select class="form-select input" formControlName="category">
+              <option *ngFor="let show of categories">{{show}}</option>
+            </select>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+</div>
